@@ -19,7 +19,7 @@ public class SubtractionFormAnArray{
     
     // this method time complexcity is O(n)
     // space complexcity is O(1)
-    // this pproach is Schoolbook subtraction
+    // this approach is Schoolbook subtraction
     private static void Decrease(int[] digits, int decreaseValue){
         var carry = 0;
         for(var i = digits.Length-1; i >= 0; i--){
@@ -32,6 +32,21 @@ public class SubtractionFormAnArray{
                 carry = 0;
             }
             decreaseValue /= 10;
+        }
+    }
+    
+    // this method time complexcity is O(n)
+    // space complexcity is O(n)
+    // this approach is caluletor subtraction
+    private static void Decrease(int[] digits, int decreaseValue){
+        var num = 0;
+        for(var i = 0; i < digits.Length; i++){
+            num = num * 10 + digits[i];
+        }
+        num -= decreaseValue;
+        for(var i = digits.Length-1; i >= 0; i--){
+            digits[i] = num % 10;
+            num /= 10;
         }
     }
     
